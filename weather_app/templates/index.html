@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cerulean/bootstrap.min.css"
+    integrity="sha512-dQLT/B7byn2LjN/DN4zeBKpwGV6qbidV0XiMRWQOL7TGrV7FkZFldkGG+DGMU+CQnMTcRZlUI7GMWt1j6akNew=="
+    crossorigin="anonymous" />
+  <title>Weather App </title>
+</head>
+
+<body>
+  <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a href="../" class="navbar-brand">Погода<span style="color: rgb(39, 117, 161);"> <strong> - Django Framework</strong></span></a>
+    </div>
+  </div>
+
+  <br /><br /><br>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <form method="post" class="col-md">
+      {% csrf_token %}
+      <div class="input-group">
+        <input type="text" class="form-control" name="city" placeholder="Выберите свой город ...">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </form>
+  </nav>
+  <br><br>
+
+  {% if error_message %}
+  <div class="alert alert-danger" role="alert">
+    {{ error_message }}
+  </div>
+  {% endif %}
+
+  <div class="row">
+    {% if data %}
+    <div class="col d-flex justify-content-center">
+      <div class="card text-white bg-light mb-6">
+        <div class="card-body">
+          <h4><span class="badge badge-primary">Температура:</span> {{ data.temp }}</h4>
+          <h4><span class="badge badge-primary">Давление :</span> {{ data.pressure }}</h4>
+          <h4><span class="badge badge-primary">Влажность : </span> {{ data.humidity }}</h4>
+          <h4><span class="badge badge-primary">Прогноз : </span> {{ data.main }} <img src="http://openweathermap.org/img/w/{{ data.icon }}.png" alt="Image" style="width:70px"></h4>
+          <h4><span class="badge badge-primary">Описание : </span> {{ data.description }}</h4>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</body>
+
+</html>
