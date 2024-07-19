@@ -1,6 +1,8 @@
 # Weather-app
+<img width="1440" alt="Снимок экрана 2024-07-19 в 15 44 22" src="https://github.com/user-attachments/assets/daaec16a-4fe3-414c-81d1-4b08e53543cd">
 
 Добро пожаловать в Weather App — веб-приложение на Django, которое позволяет просматривать текущую погоду для выбранного города. В проекте используется API OpenWeatherMap для получения данных о погоде.
+<img width="1440" alt="Снимок экрана 2024-07-19 в 15 44 18" src="https://github.com/user-attachments/assets/98d8010c-9d65-4dbe-a3e6-238e05c84ce5">
 
 ## Описание
 
